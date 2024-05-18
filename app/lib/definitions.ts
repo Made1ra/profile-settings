@@ -7,7 +7,6 @@ type Member = {
 };
 
 type Team = {
-    teams: any;
     id: string;
     name: string;
     teamOwner: string;
