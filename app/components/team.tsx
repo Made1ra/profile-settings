@@ -124,35 +124,36 @@ export default function Team() {
     }, []);
 
     return (
-        <div className="ml-8 mt-8">
+        <div className="ml-8 mt-8 max-sm:ml-2 max-sm:mt-2 max-sm:max-w-xs">
             <h2 className="text-lg font-bold">Team</h2>
             <button
                 onClick={openTeamModal}
                 className="px-4 py-2 bg-blue-500 text-white font-medium rounded-lg shadow transition ease-in-out duration-150
-                hover:bg-blue-600
-                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            hover:bg-blue-600
+            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+            max-sm:px-2 max-sm:py-1"
             >
                 Create new team
             </button>
-            <div className="m-4 w-full max-sm:overflow-x-auto">
+            <div className="m-4 w-full max-sm:overflow-x-auto max-sm:m-2">
                 <table className="w-full table-auto border-collapse text-left">
                     <thead>
                         <tr>
                             <th />
-                            <th className="p-4 text-gray-500">
+                            <th className="p-4 text-gray-500 max-sm:p-2">
                                 <div onClick={sortByTeamName} className="flex text-nowrap cursor-pointer">
                                     Team name
                                     <ChevronUpDown />
                                 </div>
                             </th>
-                            <th className="p-4 text-gray-500">
+                            <th className="p-4 text-gray-500 max-sm:p-2">
                                 <div onClick={sortByMembers} className="flex text-nowrap cursor-pointer">
                                     Members
                                     <ChevronUpDown />
                                 </div>
                             </th>
-                            <th className="p-4 text-gray-500">Team owner</th>
-                            <th className="p-4 text-gray-500">
+                            <th className="p-4 text-gray-500 max-sm:p-2">Team owner</th>
+                            <th className="p-4 text-gray-500 max-sm:p-2">
                                 <div onClick={sortByCreated} className="flex text-nowrap cursor-pointer">
                                     Created
                                     <ChevronUpDown />
@@ -170,17 +171,17 @@ export default function Team() {
                                             {selectedTeamId === team.id ? <ChevronUp /> : <ChevronDown />}
                                         </div>
                                     </td>
-                                    <td className="p-4">
+                                    <td className="p-4 max-sm:p-2">
                                         <div className="flex items-center justify-center text-nowrap">
                                             {team.name}
                                             <Badge role={team.teamOwner === 'alla.abrosimova@gmail.com' ? 'Owner' : 'Member'} />
                                         </div>
                                     </td>
-                                    <td className="p-4">{team.members.length} {team.members.length === 1 ? 'member' : 'members'}</td>
-                                    <td className="p-4">{team.teamOwner}</td>
-                                    <td className="p-4">{formatDate(team.created)}</td>
+                                    <td className="p-4 max-sm:p-2">{team.members.length} {team.members.length === 1 ? 'member' : 'members'}</td>
+                                    <td className="p-4 max-sm:p-2">{team.teamOwner}</td>
+                                    <td className="p-4 max-sm:p-2">{formatDate(team.created)}</td>
                                     <td
-                                        className="p-4 relative"
+                                        className="p-4 relative max-sm:p-2"
                                         onClick={() => toggleDropdown(team.id)}
                                         ref={(el) => { dropdownRefs.current[team.id] = el; }}
                                     >
@@ -203,11 +204,11 @@ export default function Team() {
                                 {selectedTeamId === team.id && (
                                     <tr>
                                         <td colSpan={6}>
-                                            <div className="m-4 w-full max-sm:overflow-x-auto">
+                                            <div className="m-4 w-full max-sm:overflow-x-auto max-sm:m-2">
                                                 <table className="w-full table-auto border-collapse text-left">
                                                     <thead>
                                                         <tr>
-                                                            <th className="p-4 text-gray-500">
+                                                            <th className="p-4 text-gray-500 max-sm:p-2">
                                                                 <div
                                                                     onClick={() => sortByTeamMember(selectedTeamId)}
                                                                     className="flex cursor-pointer"
@@ -216,9 +217,9 @@ export default function Team() {
                                                                     <ChevronUpDown />
                                                                 </div>
                                                             </th>
-                                                            <th className="p-4 text-gray-500">Role</th>
-                                                            <th className="p-4 text-gray-500 text-nowrap">Product features</th>
-                                                            <th className="p-4 text-gray-500">Accounts</th>
+                                                            <th className="p-4 text-gray-500 max-sm:p-2">Role</th>
+                                                            <th className="p-4 text-gray-500 text-nowrap max-sm:p-2">Product features</th>
+                                                            <th className="p-4 text-gray-500 max-sm:p-2">Accounts</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
