@@ -19,8 +19,8 @@ import ChevronUp from './icons/chevron-up';
 import ChevronDown from './icons/chevron-down';
 import EllipsisVertical from './icons/ellipsis-vertical';
 import Badge from './badge';
-import Avatar from './avatar';
 import Dropdown from './dropdown';
+import Member from './member';
 import CreateTeamModal from './create-team-modal';
 import InviteMemberModal from './invite-member-modal';
 
@@ -223,24 +223,14 @@ export default function Team() {
                                                     </thead>
                                                     <tbody>
                                                         {team.members.map((member: Member) => (
-                                                            <tr key={member.email}>
-                                                                <td className="p-4 text-left">
-                                                                    <div className="flex flex-row items-center">
-                                                                        <Avatar />
-                                                                        <div className="flex flex-col">
-                                                                            <span className="font-normal">{member.name}</span>
-                                                                            <span className="text-gray-500 text-nowrap">
-                                                                                {member.email}{member.isPending && ' (pending)'}
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td className="p-4 font-normal">{member.role}</td>
-                                                                <td className="p-4 font-normal">
-                                                                    {member.role === 'Owner' ? 'Full access' : 'Limited access'}
-                                                                </td>
-                                                                <td className="p-4 font-normal">{member.accounts}</td>
-                                                            </tr>
+                                                            <Member
+                                                                key={member.email}
+                                                                name={member.name}
+                                                                email={member.email}
+                                                                role={member.role}
+                                                                accounts={member.accounts}
+                                                                isPending={member.isPending}
+                                                            />
                                                         ))}
                                                     </tbody>
                                                 </table>
