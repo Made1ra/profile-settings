@@ -134,121 +134,125 @@ export default function Team() {
             >
                 Create new team
             </button>
-            <table className="m-4 w-full table-auto border-collapse text-left px-2">
-                <thead>
-                    <tr>
-                        <th />
-                        <th className="p-4 text-gray-500">
-                            <div onClick={sortByTeamName} className="flex text-nowrap cursor-pointer">
-                                Team name
-                                <ChevronUpDown />
-                            </div>
-                        </th>
-                        <th className="p-4 text-gray-500">
-                            <div onClick={sortByMembers} className="flex text-nowrap cursor-pointer">
-                                Members
-                                <ChevronUpDown />
-                            </div>
-                        </th>
-                        <th className="p-4 text-gray-500">Team owner</th>
-                        <th className="p-4 text-gray-500">
-                            <div onClick={sortByCreated} className="flex text-nowrap cursor-pointer">
-                                Created
-                                <ChevronUpDown />
-                            </div>
-                        </th>
-                        <th />
-                    </tr>
-                </thead>
-                <tbody>
-                    {teams.map((team: Team) => (
-                        <Fragment key={team.id}>
-                            <tr className="bg-blue-50">
-                                <td onClick={() => toggleWrap(team.id)} className="cursor-pointer rounded hover:bg-blue-200">
-                                    <div className="flex justify-center">
-                                        {selectedTeamId === team.id ? <ChevronUp /> : <ChevronDown />}
-                                    </div>
-                                </td>
-                                <td className="p-4">
-                                    <div className="flex items-center justify-center text-nowrap">
-                                        {team.name}
-                                        <Badge role={team.teamOwner === 'alla.abrosimova@gmail.com' ? 'Owner' : 'Member'} />
-                                    </div>
-                                </td>
-                                <td className="p-4">{team.members.length} {team.members.length === 1 ? 'member' : 'members'}</td>
-                                <td className="p-4">{team.teamOwner}</td>
-                                <td className="p-4">{formatDate(team.created)}</td>
-                                <td
-                                    className="p-4 relative"
-                                    onClick={() => toggleDropdown(team.id)}
-                                    ref={(el) => { dropdownRefs.current[team.id] = el; }}
-                                >
-                                    <EllipsisVertical />
-                                    {dropdownVisibility[team.id] && (
-                                        <div
-                                            className="absolute left-4 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-10 transform translate-x-6 translate-y-2"
-                                        >
-                                            <Dropdown
-                                                role={team.teamOwner === 'alla.abrosimova@gmail.com' ? 'Owner' : 'Member'}
-                                                id={team.id}
-                                                openInviteModal={openInviteModal}
-                                                handleSwitch={handleSwitch}
-                                                handleLeave={handleLeave}
-                                            />
+            <div className="m-4 w-full max-sm:overflow-x-auto">
+                <table className="w-full table-auto border-collapse text-left">
+                    <thead>
+                        <tr>
+                            <th />
+                            <th className="p-4 text-gray-500">
+                                <div onClick={sortByTeamName} className="flex text-nowrap cursor-pointer">
+                                    Team name
+                                    <ChevronUpDown />
+                                </div>
+                            </th>
+                            <th className="p-4 text-gray-500">
+                                <div onClick={sortByMembers} className="flex text-nowrap cursor-pointer">
+                                    Members
+                                    <ChevronUpDown />
+                                </div>
+                            </th>
+                            <th className="p-4 text-gray-500">Team owner</th>
+                            <th className="p-4 text-gray-500">
+                                <div onClick={sortByCreated} className="flex text-nowrap cursor-pointer">
+                                    Created
+                                    <ChevronUpDown />
+                                </div>
+                            </th>
+                            <th />
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {teams.map((team: Team) => (
+                            <Fragment key={team.id}>
+                                <tr className="bg-blue-50">
+                                    <td onClick={() => toggleWrap(team.id)} className="cursor-pointer rounded hover:bg-blue-200">
+                                        <div className="flex justify-center">
+                                            {selectedTeamId === team.id ? <ChevronUp /> : <ChevronDown />}
                                         </div>
-                                    )}
-                                </td>
-                            </tr>
-                            {selectedTeamId === team.id && (
-                                <tr>
-                                    <td colSpan={6}>
-                                        <table className="m-4 w-full table-auto border-collapse text-left">
-                                            <thead>
-                                                <tr>
-                                                    <th className="p-4 text-gray-500">
-                                                        <div
-                                                            onClick={() => sortByTeamMember(selectedTeamId)}
-                                                            className="flex cursor-pointer"
-                                                        >
-                                                            Team member
-                                                            <ChevronUpDown />
-                                                        </div>
-                                                    </th>
-                                                    <th className="p-4 text-gray-500">Role</th>
-                                                    <th className="p-4 text-gray-500 text-nowrap">Product features</th>
-                                                    <th className="p-4 text-gray-500">Accounts</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {team.members.map((member: Member) => (
-                                                    <tr key={member.email}>
-                                                        <td className="p-4 text-left">
-                                                            <div className="flex flex-row items-center">
-                                                                <Avatar />
-                                                                <div className="flex flex-col">
-                                                                    <span className="font-normal">{member.name}</span>
-                                                                    <span className="text-gray-500 text-nowrap">
-                                                                        {member.email}{member.isPending && ' (pending)'}
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td className="p-4 font-normal">{member.role}</td>
-                                                        <td className="p-4 font-normal">
-                                                            {member.role === 'Owner' ? 'Full access' : 'Limited access'}
-                                                        </td>
-                                                        <td className="p-4 font-normal">{member.accounts}</td>
-                                                    </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
+                                    </td>
+                                    <td className="p-4">
+                                        <div className="flex items-center justify-center text-nowrap">
+                                            {team.name}
+                                            <Badge role={team.teamOwner === 'alla.abrosimova@gmail.com' ? 'Owner' : 'Member'} />
+                                        </div>
+                                    </td>
+                                    <td className="p-4">{team.members.length} {team.members.length === 1 ? 'member' : 'members'}</td>
+                                    <td className="p-4">{team.teamOwner}</td>
+                                    <td className="p-4">{formatDate(team.created)}</td>
+                                    <td
+                                        className="p-4 relative"
+                                        onClick={() => toggleDropdown(team.id)}
+                                        ref={(el) => { dropdownRefs.current[team.id] = el; }}
+                                    >
+                                        <EllipsisVertical />
+                                        {dropdownVisibility[team.id] && (
+                                            <div
+                                                className="absolute left-4 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-10 transform translate-x-6 translate-y-2"
+                                            >
+                                                <Dropdown
+                                                    role={team.teamOwner === 'alla.abrosimova@gmail.com' ? 'Owner' : 'Member'}
+                                                    id={team.id}
+                                                    openInviteModal={openInviteModal}
+                                                    handleSwitch={handleSwitch}
+                                                    handleLeave={handleLeave}
+                                                />
+                                            </div>
+                                        )}
                                     </td>
                                 </tr>
-                            )}
-                        </Fragment>
-                    ))}
-                </tbody>
-            </table>
+                                {selectedTeamId === team.id && (
+                                    <tr>
+                                        <td colSpan={6}>
+                                            <div className="m-4 w-full max-sm:overflow-x-auto">
+                                                <table className="w-full table-auto border-collapse text-left">
+                                                    <thead>
+                                                        <tr>
+                                                            <th className="p-4 text-gray-500">
+                                                                <div
+                                                                    onClick={() => sortByTeamMember(selectedTeamId)}
+                                                                    className="flex cursor-pointer"
+                                                                >
+                                                                    Team member
+                                                                    <ChevronUpDown />
+                                                                </div>
+                                                            </th>
+                                                            <th className="p-4 text-gray-500">Role</th>
+                                                            <th className="p-4 text-gray-500 text-nowrap">Product features</th>
+                                                            <th className="p-4 text-gray-500">Accounts</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {team.members.map((member: Member) => (
+                                                            <tr key={member.email}>
+                                                                <td className="p-4 text-left">
+                                                                    <div className="flex flex-row items-center">
+                                                                        <Avatar />
+                                                                        <div className="flex flex-col">
+                                                                            <span className="font-normal">{member.name}</span>
+                                                                            <span className="text-gray-500 text-nowrap">
+                                                                                {member.email}{member.isPending && ' (pending)'}
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td className="p-4 font-normal">{member.role}</td>
+                                                                <td className="p-4 font-normal">
+                                                                    {member.role === 'Owner' ? 'Full access' : 'Limited access'}
+                                                                </td>
+                                                                <td className="p-4 font-normal">{member.accounts}</td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                )}
+                            </Fragment>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
             <CreateTeamModal
                 isOpen={isModal}
                 onClose={closeTeamModal}
