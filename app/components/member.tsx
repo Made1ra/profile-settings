@@ -14,7 +14,7 @@ export default function Member({
     isPending?: boolean;
 }) {
     return (
-        <tr key={email}>
+        <tr>
             <td className="p-4 text-left">
                 <div className="flex flex-row items-center">
                     <Avatar />
