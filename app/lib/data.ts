@@ -19,7 +19,7 @@ export const initialState = {
             members: [
                 { name: 'Oksana Abrosimova', email: 'oks.abr@gmail.com', role: 'Owner', accounts: 5 },
                 { name: 'Mario Koss', email: 'Mario.Koss@hotmail.com', role: 'Member', accounts: 2 },
-                { name: '', email: 'allaAbr@gmail.com', role: 'Member', accounts: 5, isPending: false },
+                { name: '', email: 'allaAbr@gmail.com', role: 'Member', accounts: 5, isPending: true },
                 { name: 'John Doe', email: 'johnDoe@gmail.com', role: 'Member', accounts: 4 },
             ],
             created: new Date(2023, 10, 14).getTime(),
