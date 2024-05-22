@@ -165,7 +165,7 @@ export default function Team() {
                     <tbody>
                         {teams.map((team: Team) => (
                             <Fragment key={team.id}>
-                                <tr className="bg-blue-50">
+                                <tr className="bg-blue-50 my-2">
                                     <td onClick={() => toggleWrap(team.id)} className="cursor-pointer rounded hover:bg-blue-200">
                                         <div className="flex justify-center">
                                             {selectedTeamId === team.id ? <ChevronUp /> : <ChevronDown />}
@@ -200,6 +200,9 @@ export default function Team() {
                                             </div>
                                         )}
                                     </td>
+                                </tr>
+                                <tr>
+                                    <td colSpan={6} className="h-4"></td>
                                 </tr>
                                 {selectedTeamId === team.id && (
                                     <tr>
