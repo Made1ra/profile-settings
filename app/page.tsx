@@ -8,7 +8,7 @@ export default function ProfileSettings() {
   const [activeTab, setActiveTab] = useState<'My account' | 'Team'>('Team');
 
   return (
-    <div className="flex min-h-screen flex-col items-center p-8">
+    <div className="flex min-h-screen flex-col items-start p-8">
       <div className="w-full max-w-6xl">
         <h1 className="text-3xl font-bold mb-4">Settings</h1>
         <div className="bg-white shadow rounded-lg">

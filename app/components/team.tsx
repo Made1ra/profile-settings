@@ -124,7 +124,7 @@ export default function Team() {
     }, []);
 
     return (
-        <div className="ml-8 mt-8 max-sm:ml-2 max-sm:mt-2 max-sm:max-w-xs">
+        <div className="mt-8 max-sm:mt-2 max-sm:max-w-xs">
             <h2 className="text-lg font-bold">Team</h2>
             <button
                 onClick={openTeamModal}
@@ -188,7 +188,8 @@ export default function Team() {
                                         <EllipsisVertical />
                                         {dropdownVisibility[team.id] && (
                                             <div
-                                                className="absolute left-4 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-10 transform translate-x-6 translate-y-2"
+                                                className="absolute left-4 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-10 transform translate-x-6 translate-y-2
+                                                max-sm:mt-0 max-sm:-left-44 max-sm:transform-none max-sm:translate-x-0 max-sm:translate-y-0"
                                             >
                                                 <Dropdown
                                                     role={team.teamOwner === 'alla.abrosimova@gmail.com' ? 'Owner' : 'Member'}
