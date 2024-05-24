@@ -166,8 +166,12 @@ export default function Team() {
                         {teams.map((team: Team) => (
                             <Fragment key={team.id}>
                                 <tr className="bg-blue-50 my-2">
-                                    <td onClick={() => toggleWrap(team.id)} className="cursor-pointer rounded hover:bg-blue-200">
-                                        <div className="flex justify-center">
+                                    <td
+                                        onClick={() => toggleWrap(team.id)}
+                                        className="p-4 max-sm:p-2"
+                                    >
+                                        <div className="cursor-pointer rounded flex items-center justify-center w-10 h-10
+                                        hover:bg-blue-200">
                                             {selectedTeamId === team.id ? <ChevronUp /> : <ChevronDown />}
                                         </div>
                                     </td>
