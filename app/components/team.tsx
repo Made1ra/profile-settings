@@ -124,7 +124,7 @@ export default function Team() {
     }, []);
 
     return (
-        <div className="mt-8 max-sm:mt-2 max-sm:max-w-xs">
+        <div className="px-4 mt-8 max-sm:mt-2 max-sm:max-w-xs max-sm:px-0">
             <h2 className="text-lg font-bold">Team</h2>
             <button
                 onClick={openTeamModal}

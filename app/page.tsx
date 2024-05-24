@@ -12,7 +12,7 @@ export default function ProfileSettings() {
       <div className="w-full max-w-6xl">
         <h1 className="text-3xl font-bold mb-4">Settings</h1>
         <div className="bg-white shadow-xl rounded-xl">
-          <div className="p-4 h-12">
+          <div className="p-8 h-12 max-sm:p-4">
             <button
               onClick={() => setActiveTab('My account')}
               className={`px-1 h-12 mr-4 text-lg ${activeTab === 'My account' ? 'text-black border-b-2 border-blue-400' : 'text-gray-500'}`}
