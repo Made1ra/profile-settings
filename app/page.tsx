@@ -12,16 +12,16 @@ export default function ProfileSettings() {
       <div className="w-full max-w-6xl">
         <h1 className="text-3xl font-bold mb-4">Settings</h1>
         <div className="bg-white shadow-xl rounded-xl">
-          <div className="border-b p-4">
+          <div className="border-b p-4 h-14">
             <button
               onClick={() => setActiveTab('My account')}
-              className={`mr-4 text-lg ${activeTab === 'My account' && 'border-b-2 border-blue-400'}`}
+              className={`px-1 h-10 mr-4 text-lg text-gray-500 ${activeTab === 'My account' && 'text-black border-b-2 border-blue-400'}`}
             >
               My account
             </button>
             <button
               onClick={() => setActiveTab('Team')}
-              className={`text-lg ${activeTab === 'Team' && 'border-b-2 border-blue-400'}`}
+              className={`px-1 h-10 text-lg text-gray-500 ${activeTab === 'Team' && 'text-black border-b-2 border-blue-400'}`}
             >
               Team
             </button>
