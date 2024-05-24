@@ -15,13 +15,13 @@ export default function ProfileSettings() {
           <div className="border-b p-4 h-14">
             <button
               onClick={() => setActiveTab('My account')}
-              className={`px-1 h-10 mr-4 text-lg text-gray-500 ${activeTab === 'My account' && 'text-black border-b-2 border-blue-400'}`}
+              className={`px-1 h-10 mr-4 text-lg ${activeTab === 'My account' ? 'text-black border-b-2 border-blue-400' : 'text-gray-500'}`}
             >
               My account
             </button>
             <button
               onClick={() => setActiveTab('Team')}
-              className={`px-1 h-10 text-lg text-gray-500 ${activeTab === 'Team' && 'text-black border-b-2 border-blue-400'}`}
+              className={`px-1 h-10 text-lg ${activeTab === 'Team' ? 'text-black border-b-2 border-blue-400' : 'text-gray-500'}`}
             >
               Team
             </button>
