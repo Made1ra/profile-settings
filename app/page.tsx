@@ -8,10 +8,10 @@ export default function ProfileSettings() {
   const [activeTab, setActiveTab] = useState<'My account' | 'Team'>('Team');
 
   return (
-    <div className="flex min-h-screen flex-col items-start p-8">
+    <div className="flex min-h-screen flex-col items-start p-10">
       <div className="w-full max-w-6xl">
         <h1 className="text-3xl font-bold mb-4">Settings</h1>
-        <div className="bg-white shadow rounded-lg">
+        <div className="bg-white shadow-xl rounded-xl">
           <div className="border-b p-4">
             <button
               onClick={() => setActiveTab('My account')}

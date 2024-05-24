@@ -44,7 +44,7 @@ export default function InviteMemberModal({
 
     return (
         <form className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-            <div className="bg-white rounded-lg shadow-lg p-6 w-96">
+            <div className="bg-white rounded-lg shadow-lg p-6 w-96 max-sm:m-2">
                 <div className="mb-4">
                     <label className="block text-gray-700 font-semibold mb-2">
                         Email:
