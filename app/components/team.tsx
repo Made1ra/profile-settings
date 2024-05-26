@@ -176,7 +176,7 @@ export default function Team() {
                                         </div>
                                     </td>
                                     <td className="p-4 max-sm:p-2">
-                                        <div className="flex items-center justify-center text-nowrap">
+                                        <div className="flex items-center justify-start text-nowrap">
                                             {team.name}
                                             <Badge role={team.teamOwner === 'alla.abrosimova@gmail.com' ? 'Owner' : 'Member'} />
                                         </div>
