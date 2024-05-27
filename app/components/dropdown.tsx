@@ -20,32 +20,30 @@ export default function Dropdown({
     }
 
     return (
-        <>
-            <div className="flex flex-col bg-white rounded shadow-xl p-2">
-                {role === 'Owner' && (
-                    <button
-                        onClick={openModal}
-                        className="flex flex-row m-2 gap-1"
-                    >
-                        <UserPlus />
-                        Invite member
-                    </button>
-                )}
+        <div className="flex flex-col bg-white rounded shadow-xl p-2">
+            {role === 'Owner' && (
                 <button
-                    onClick={() => handleSwitch(id)}
-                    className="flex flex-row m-2 gap-1"
+                    onClick={openModal}
+                    className="flex flex-row m-2 gap-1 rounded hover:bg-blue-200 sm:p-2"
                 >
-                    <ArrowsRightLeft />
-                    Switch team
+                    <UserPlus />
+                    Invite member
                 </button>
-                <button
-                    onClick={() => handleLeave(id)}
-                    className="flex flex-row m-2 gap-1"
-                >
-                    <ArrowRightCircle />
-                    Leave the team
-                </button>
-            </div>
-        </>
+            )}
+            <button
+                onClick={() => handleSwitch(id)}
+                className="flex flex-row m-2 gap-1 rounded hover:bg-blue-200 sm:p-2"
+            >
+                <ArrowsRightLeft />
+                Switch team
+            </button>
+            <button
+                onClick={() => handleLeave(id)}
+                className="whitespace-nowrap flex flex-row m-2 gap-1 rounded hover:bg-blue-200 sm:p-2"
+            >
+                <ArrowRightCircle />
+                Leave the team
+            </button>
+        </div>
     );
 }
