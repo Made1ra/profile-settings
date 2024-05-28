@@ -17,7 +17,11 @@ export default function Member({
         <tr>
             <td className="p-4 text-left">
                 <div className="flex flex-row items-center">
-                    <Avatar />
+                    <Avatar
+                        width={40}
+                        height={40}
+                        className="w-10 h-10 mr-2"
+                    />
                     <div className="flex flex-col">
                         <span className="font-normal">{name}</span>
                         <span className="text-gray-500 text-nowrap">
