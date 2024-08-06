@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { nanoid } from "nanoid";
 import { initialState } from "../lib/data";
 
 const teamsSlice = createSlice({
@@ -8,9 +7,8 @@ const teamsSlice = createSlice({
   reducers: {
     addTeam: (state, action) => {
       const { name, members, teamOwner } = action.payload;
-      const id = nanoid();
       state.teams.push({
-        id,
+        id: crypto.randomUUID(),
         name,
         teamOwner,
         members: new Array(members),
